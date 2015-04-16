@@ -26,8 +26,10 @@ altura = str(input('Qual sua altura em metros?\n'))
 altura = altura.replace(',','.')
 altura = float(altura)
 sexo = str(input('Qual o seu sexo (m/f)?\n')).lower()
-faf = str(input('Qual o seu fator de atividade física (minimo,baixo,médio,alto,muito ativo)?\n'))
+faf = str(input('Qual o seu fator de atividade física (minimo,baixo,médio,alto,muito ativo)?\n')).lower()
 
 print(nome)
+
+
 
 #for i in range(len(limpa)):
