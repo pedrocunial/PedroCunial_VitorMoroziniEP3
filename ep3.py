@@ -5,15 +5,12 @@
 import tkinter
 
 limpa = []
-arquivo = open("alimentos.csv", "r+")
+arquivo = open("alimentos.csv", encoding="latin1", mode="r+")
 leitura = arquivo.readlines()
-#print(leitura)
 
 for i in leitura:
-    #i =i.replace("\n","")
     i = i.strip()
     limpa.append(i)
-#print(limpa)
 
 for i in range(1,len(limpa)):
     limpa[i] = limpa[i].split(',')
@@ -21,14 +18,15 @@ for i in range(1,len(limpa)):
 print(limpa)
 print(tkinter.__file__)
 nome = str(input('Qual o seu nome?\n'))
-idade = int(input('Quantos anos você tem?\n'))
+idade = int(input('Quantos anos voce tem?\n'))
 altura = str(input('Qual sua altura em metros?\n'))
 altura = altura.replace(',','.')
 altura = float(altura)
 sexo = str(input('Qual o seu sexo (m/f)?\n')).lower()
-faf = str(input('Qual o seu fator de atividade física (minimo,baixo,médio,alto,muito ativo)?\n')).lower()
+faf = str(input('Qual o seu fator de atividade fisica (minimo,baixo,medio,alto,muito ativo)?\n')).lower()
+adam = tkinter.messagebox.askquestion('ADAM','IS ADAM AN ASSHOLE?')
 
-print(nome)
+print('Ola ', nome,  ', voce tem ', idade, 'e mede ', altura, 'm, voce eh ', sexo, 'e seu fator de atividade fisica eh ', faf)
 
 
 
