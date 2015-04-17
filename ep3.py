@@ -55,11 +55,12 @@ while run == True:
         print(comida)
         cont = 0
         for i in range(len(limpa)):
-            if limpa[0][i] == comida:
+            if limpa[i][0] == comida:
                 print('valor computado')
                 cont += 1
         if cont == 1:
             print('Encontrado')
+            c = False
         elif cont > 1:
             print('ERRO, a comida aparece ', limpa.count(comida) ,'vezes na lista, seja mais especifico')
         else:
