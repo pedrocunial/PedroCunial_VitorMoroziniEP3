@@ -2,7 +2,6 @@
 
 #Pedro Cunial & Vitor Morozini - 1A
 
-import tkinter
 import datetime
 
 limpa = []
@@ -17,7 +16,6 @@ for i in range(1,len(limpa)):
     limpa[i] = limpa[i].split(',')
 
 print(limpa)
-print(tkinter.__file__)
 nome = str(input('Qual o seu nome?\n'))
 idade = int(input('Quantos anos voce tem?\n'))
 altura = str(input('Qual sua altura em metros?\n'))
@@ -29,17 +27,13 @@ faf = str(input('Qual o seu fator de atividade fisica (minimo,baixo,medio,alto,m
 print('Ola ', nome,  ', voce tem ', idade, 'e mede ', altura, 'm, voce eh ', sexo, 'e seu fator de atividade fisica eh ', faf)
 
 run = True
-meses = {janeiro, fevereiro, marco, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro}
-cont = 1
-for m in meses:
-    meses(m) = i
-    i += 1
+meses = {'janeiro':1, 'fevereiro':2, 'marco':3, 'abril':4, 'maio':5, 'junho':6, 'julho':7, 'agosto':8, 'setembro':9, 'outubro':10, 'novembro':11, 'dezembro':12}
 
 while run == True:
     dia = int(input('Qual o dia referente ao alimento comido?\n'))
     mes = input('Qual o mes referente ao alimento comido?\n')
     if mes in meses:
-        mes = meses(mes)
+        mes = meses[mes]
     ano = int(input('Qual o ano referente ao alimento comido?\n'))
     data = datetime.date(ano,mes,dia)
     print(data)
