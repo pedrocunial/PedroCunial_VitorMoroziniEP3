@@ -20,6 +20,9 @@ for i in leitura:
 for i in range(1,len(limpa)):
     limpa[i] = limpa[i].split(',')
 
+#ENCONTREI O ERRO, ISSO NÃO É UMA MATRIZ COM VÁRIOS VALORES E SIM UMA MATRIZ COM UM VALOR SEPARANDO COM ';'
+
+'''
 dic = {}
 dic[0] = limpa[0]
 for i in range(1,len(limpa)):
@@ -75,4 +78,4 @@ while run == True:
         else:
             print('Valor não presente na lista')
             print(cont)
-            
+'''            
