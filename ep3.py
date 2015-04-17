@@ -17,10 +17,19 @@ for i in leitura:
     i = i.strip()
     limpa.append(i)
 
-for i in range(len(limpa)):
+for i in range(1,len(limpa)):
     limpa[i] = limpa[i].split(',')
 
-print(limpa)
+dic = {}
+dic[0] = limpa[0]
+for i in range(1,len(limpa)):
+    for j in range(len(limpa[i])):
+        if j == 1:
+            dic[limpa[i][0]] = limpa[i][j]
+        elif j > 1:
+            dic[limpa[i][0]] += limpa[i][j]
+print(dic)
+
 nome = str(input('Qual o seu nome?\n'))
 idade = int(input('Quantos anos voce tem?\n'))
 altura = str(input('Qual sua altura em metros?\n'))
