@@ -3,6 +3,11 @@
 #Pedro Cunial & Vitor Morozini - 1A
 
 import datetime
+import tkinter.simpledialog as tk
+import tkinter
+root = tkinter.Tk()
+root.withdraw()
+
 
 limpa = []
 arquivo = open("alimentos.csv", encoding="latin1", mode="r+")
@@ -12,7 +17,7 @@ for i in leitura:
     i = i.strip()
     limpa.append(i)
 
-for i in range(1,len(limpa)):
+for i in range(len(limpa)):
     limpa[i] = limpa[i].split(',')
 
 print(limpa)
@@ -32,24 +37,32 @@ meses = {'janeiro':1, 'fevereiro':2, 'marco':3, 'abril':4, 'maio':5, 'junho':6, 
 while run == True:
     dia = int(input('Qual o dia referente ao alimento comido?\n'))
     mes = input('Qual o mes referente ao alimento comido?\n')
+    
     if mes in meses:
-        mes = meses[mes]
+        mes = int(meses[mes])
+    else:
+        mes = int(mes)
+
     ano = int(input('Qual o ano referente ao alimento comido?\n'))
+
     data = datetime.date(ano,mes,dia)
     print(data)
+    
     
     c = True
     while c == True:
         comida = str(input('Qual o alimento comido?')).upper()
-        if comida not in limpa:
-            print('ERRO, a comida escolhida não está na lista de possibilidades')
+        print(comida)
+        cont = 0
+        for i in range(len(limpa)):
+            if limpa[0][i] == comida:
+                print('valor computado')
+                cont += 1
+        if cont == 1:
+            print('Encontrado')
+        elif cont > 1:
+            print('ERRO, a comida aparece ', limpa.count(comida) ,'vezes na lista, seja mais especifico')
         else:
-            cont = 0
-            for i in range(len(limpa)):
-                if limpa[i][1] == comida:
-                    cont += 1
-
-            if cont > 1:
-                print('ERRO, o alimento foi encontrado mais de uma vez, por favor, seja mais específico')
-            else:
-                c = False
+            print('Valor não presente na lista')
+            print(cont)
+            
