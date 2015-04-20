@@ -19,8 +19,13 @@ for i in leitura:
 
 for i in range(1,len(limpa)):
     limpa[i] = limpa[i].split(',')
+    limpa[i][0] = limpa[i][0].split(';')
+
+print(limpa)
 
 #ENCONTREI O ERRO, ISSO NÃO É UMA MATRIZ COM VÁRIOS VALORES E SIM UMA MATRIZ COM UM VALOR SEPARANDO COM ';'
+
+#ARRUMEI O PROBLEMA
 
 '''
 dic = {}
