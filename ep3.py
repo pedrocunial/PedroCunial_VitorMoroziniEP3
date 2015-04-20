@@ -22,12 +22,12 @@ for i in range(1,len(limpa)):
     limpa[i][0] = limpa[i][0].split(';')
 
 print(limpa)
+print(limpa[2][0][0])
 
 #ENCONTREI O ERRO, ISSO NÃO É UMA MATRIZ COM VÁRIOS VALORES E SIM UMA MATRIZ COM UM VALOR SEPARANDO COM ';'
 
 #ARRUMEI O PROBLEMA
 
-'''
 dic = {}
 dic[0] = limpa[0]
 for i in range(1,len(limpa)):
@@ -72,9 +72,10 @@ while run == True:
         print(comida)
         cont = 0
         for i in range(len(limpa)):
-            if limpa[i][0] == comida:
+            if limpa[i][0][0] == comida:
                 print('valor computado')
                 cont += 1
+                print(limpa[i][0][0])
         if cont == 1:
             print('Encontrado')
             c = False
@@ -83,4 +84,3 @@ while run == True:
         else:
             print('Valor não presente na lista')
             print(cont)
-'''            
