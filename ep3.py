@@ -162,16 +162,14 @@ for i in range(7):
     limpa2.append(reccal)
  
 plt.plot(tempo,limpa2)
-plt.axis([1,7,0,10000])
 plt.ylabel('Calorias')
 plt.xlabel('Dias da semana')
 plt.title(r'Quantidade de calorias recomendada')
 plt.show() 
-'''
+
 #Quantidade ingerida de calorias
 
 plt.plot(tempo,#limpa2)
-plt.axis([1,7,0,10000])
 plt.ylabel('Calorias')
 plt.xlabel('Dias da semana')
 plt.title(r'Quantidade de calorias ingerida')
@@ -180,7 +178,6 @@ plt.show()
 #Quantidade ingerida de proteína
 
 plt.plot(tempo,#limpa2)
-plt.axis([1,7,0,500])
 plt.ylabel('Proteína')
 plt.xlabel('Dias da semana')
 plt.title(r'Quantidade de proteína ingerida [g]')
@@ -189,7 +186,6 @@ plt.show()
 #Quantidade ingerida de gordura
 
 plt.plot(tempo,#limpa2)
-plt.axis([1,7,0,500])
 plt.ylabel('Gordura')
 plt.xlabel('Dias da semana')
 plt.title(r'Quantidade de gordura ingerida')
@@ -198,21 +194,20 @@ plt.show()
 #Quantidade ingerida de carboidrato
 
 plt.plot(tempo,#limpa2)
-plt.axis([1,7,0,500])
 plt.ylabel('Carboidrato')
 plt.xlabel('Dias da semana')
 plt.title(r'Quantidade de carboidrato ingerida')
 plt.show()  
-'''
+
 #Índice de massa corporal Nick Trefethen 1,3 X peso (em quilogramas)/ altura (metros)
 
 IMC = (1.3*peso) / altura
 
 if IMC < 18.5:
    print('Você está abaixo do peso')
-if 24.9 <= IMC <= 18.5:
+elif 24.9 <= IMC <= 18.5:
     print('Você é saudável')
-if 29.9 <= IMC <= 25.0:
+elif 29.9 <= IMC <= 25.0:
     print('Você está com sobrepeso')
-if IMC > 30.0:
+elif IMC > 30.0:
     print('Desculpe,você é considerado obeso')
