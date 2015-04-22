@@ -157,12 +157,10 @@ limpa2 = []
 
 tempo = list(range(1,8))
 
+print(tempo)
+
 for i in range(7):
     limpa2.append(reccal)
-    cals.append(qtd * alicals)
-    prot.append(qtd * aliprot)
-    carb.append(qtd * alicarb)
-    gord.append(qtd * aligord)
  
 plt.plot(tempo,limpa2)
 plt.ylabel('Calorias')
@@ -215,7 +213,7 @@ elif 29.9 <= IMC <= 25.0:
 elif IMC > 30.0:
     print('Desculpe,você é considerado obeso')
 
-print(cals)
-print(gord)
-print(prot)
-print(carb)
+#print(cals)
+#print(gord)
+#print(prot)
+#print(carb)
