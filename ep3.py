@@ -8,7 +8,7 @@ Created on Tue Apr 21 18:19:52 2015
 #Pedro Cunial & Vitor Morozini - 1A
 
 import datetime
-import matplotlib.pyplot	as plt
+import matplotlib.pyplot as plt
 
 
 
@@ -55,12 +55,8 @@ print('Ola ', nome,  ', voce tem ', idade, 'e mede ', altura, 'm, voce eh ', sex
 run = True
 meses = {'janeiro':1, 'fevereiro':2, 'marco':3, 'abril':4, 'maio':5, 'junho':6, 'julho':7, 'agosto':8, 'setembro':9, 'outubro':10, 'novembro':11, 'dezembro':12}
 datas = []
-dic2 = {'minimo':1 , 'baixo':2 , 'medio':3 , 'alto':4 , 'muito ativo':5}
 cals = []
-prot = []
-carb = []
-gord = []
-
+dic2 = {'minimo':1 , 'baixo':2 , 'medio':3 , 'alto':4 , 'muito ativo':5}
 while run == True:
     dia = int(input('Qual o dia referente ao alimento comido?\n'))
     mes = input('Qual o mes referente ao alimento comido?\n')
@@ -75,33 +71,34 @@ while run == True:
     data = datetime.date(ano,mes,dia)
     print(data)
     datas.append(data)
-    if data >= datas[0] + 7:
+    if data - datas[0] >= datetime.timedelta(weeks = 1):
+        print('semana')
         run = False
     
     c = True
     while c == True:
         comida = str(input('Qual o alimento comido?')).upper()
+        qtd = float(input('Qual a quantidade comida do alimento?'))
         print(comida)
-        cont = 0
         for i in range(len(limpa)):
             if limpa[i][0][0] == comida:
                 print('valor computado')
-                cont += 1
                 print(limpa[i][0][0])
                 gramas = float(limpa[i][0][1])
                 alicals = float(limpa[i][0][2])
-                aliprot = float(limpa[i][0][3])
-                alicarb = float(limpa[i][0][4])
-                aligord = float(limpa[i][0][5])
-                qtd = qtd / gramas
-                cals.append(qtd * alicals)
-                prot.append(qtd * aliprot)
-                carb.append(qtd * alicarb)
-                gord.append(qtd * aligord)
-                print(cals[-1], prot[-1], carb[-1], gord[-1])
-                c = False
+                cals.append(qtd / gramas  * alicals)
+                print(cals[-1])
+
+            c = False
 
 #Quantidade recomendada de calorias
+
+import matplotlib.pyplot	as plt
+
+peso = int(input('Qual o seu peso, em kg?'))
+
+dic2 = {'minimo':1 , 'baixo':2 , 'medio':3 , 'alto':4 , 'muito ativo':5}
+
 if faf == 1:
    coef = 1.2
 
@@ -137,8 +134,8 @@ plt.axis([1,7,0,10000])
 plt.ylabel('Calorias')
 plt.xlabel('Dias da semana')
 plt.title(r'Quantidade de calorias recomendada')
-plt.show() 
-'''
+plt.show()
+ 
 #Quantidade ingerida de calorias
 
 plt.plot(tempo,#limpa2)
@@ -174,16 +171,3 @@ plt.ylabel('Carboidrato')
 plt.xlabel('Dias da semana')
 plt.title(r'Quantidade de carboidrato ingerida')
 plt.show()  
-'''
-#Índice de massa corporal Nick Trefethen 1,3 X peso (em quilogramas)/ altura (metros)
-
-IMC = (1.3*peso) / altura
-
-if IMC < 18.5:
-   print('Você está abaixo do peso')
-if 24.9 <= IMC <= 18.5:
-    print('Você é saudável')
-if 29.9 <= IMC <= 25.0:
-    print('Você está com sobrepeso')
-if IMC > 30.0:
-    print('Desculpe,você é considerado obeso')
