@@ -8,7 +8,7 @@ Created on Tue Apr 21 18:19:52 2015
 #Pedro Cunial & Vitor Morozini - 1A
 
 import datetime
-import matplotlib.pyplot	as plt
+import matplotlib.pyplot as plt
 
 
 
@@ -54,7 +54,7 @@ print('Ola ', nome,  ', voce tem ', idade, 'e mede ', altura, 'm, voce eh ', sex
 run = True
 meses = {'janeiro':1, 'fevereiro':2, 'marco':3, 'abril':4, 'maio':5, 'junho':6, 'julho':7, 'agosto':8, 'setembro':9, 'outubro':10, 'novembro':11, 'dezembro':12}
 datas = []
-
+cals = []
 while run == True:
     dia = int(input('Qual o dia referente ao alimento comido?\n'))
     mes = input('Qual o mes referente ao alimento comido?\n')
@@ -69,34 +69,29 @@ while run == True:
     data = datetime.date(ano,mes,dia)
     print(data)
     datas.append(data)
-    if data >= datas[0] + 7:
+    if data - datas[0] >= datetime.timedelta(weeks = 1):
+        print('semana')
         run = False
     
     c = True
     while c == True:
         comida = str(input('Qual o alimento comido?')).upper()
+        qtd = float(input('Qual a quantidade comida do alimento?'))
         print(comida)
-        cont = 0
         for i in range(len(limpa)):
             if limpa[i][0][0] == comida:
                 print('valor computado')
-                cont += 1
                 print(limpa[i][0][0])
-                c = False
-        if cont == 1:
-            print('Encontrado')
-            c = False
-        elif cont > 1:
-            print('ERRO, a comida aparece ', limpa.count(comida) ,'vezes na lista, seja mais especifico')
-        else:
-            print('Valor não presente na lista')
-            print(cont)
+                gramas = float(limpa[i][0][1])
+                alicals = float(limpa[i][0][2])
+                cals.append(qtd / gramas  * alicals)
+                print(cals[-1])
 
+                c = False
+            
 
 
 #Quantidade recomendada de calorias
-
-import matplotlib.pyplot	as plt
 
 peso = int(input('Qual o seu peso, em kg?'))
 
