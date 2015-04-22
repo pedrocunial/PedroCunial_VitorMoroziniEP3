@@ -152,21 +152,14 @@ else:
    
 
 reccal = TMB*coef
-reccal1 = qtd * alicals
-#reccal2
-#reccal3
-#reccal4   
+  
 limpa2 = []
-cals = []
-prot = []
-carb = []
-gord = []
 
 tempo = list(range(1,8))
 
 for i in range(7):
     limpa2.append(reccal)
-    cals.append(reccal1)
+    cals.append(qtd * alicals)
     prot.append(qtd * aliprot)
     carb.append(qtd * alicarb)
     gord.append(qtd * aligord)
@@ -221,3 +214,8 @@ elif 29.9 <= IMC <= 25.0:
     print('Você está com sobrepeso')
 elif IMC > 30.0:
     print('Desculpe,você é considerado obeso')
+
+print(cals)
+print(gord)
+print(prot)
+print(carb)
