@@ -152,14 +152,21 @@ else:
    
 
 reccal = TMB*coef
-   
+reccal1 = qtd * alicals
+#reccal2
+#reccal3
+#reccal4   
 limpa2 = []
+cals = []
+prot = []
+carb = []
+gord = []
 
 tempo = list(range(1,8))
 
 for i in range(7):
     limpa2.append(reccal)
-    cals.append(qtd * alicals)
+    cals.append(reccal1)
     prot.append(qtd * aliprot)
     carb.append(qtd * alicarb)
     gord.append(qtd * aligord)
