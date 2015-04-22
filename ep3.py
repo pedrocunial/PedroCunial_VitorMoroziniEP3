@@ -74,14 +74,17 @@ while run == True:
 
     data = datetime.date(ano,mes,dia)
     print(data)
-    datas.append(data)
-    if data - datas[0] >= datetime.timedelta(weeks = 1):
-        print('semana')
-        run = False
+    
     
     c = True
     while c == True:
         if data not in datas:
+            
+            datas.append(data)
+            if data - datas[0] >= datetime.timedelta(weeks = 1):
+                print('semana completa, programa finalizado, beijos.')
+                run = False
+            
             comida = str(input('Qual o alimento comido?')).upper()
             qtd = float(input('Qual a quantidade comida?'))
             print(comida)
