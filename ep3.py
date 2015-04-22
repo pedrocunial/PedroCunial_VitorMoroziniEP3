@@ -139,3 +139,30 @@ plt.ylabel('Calorias')
 plt.xlabel('Dias da semana')
 plt.title(r'Quantidade de calorias ingerida')
 plt.show() 
+
+#Quantidade ingerida de proteína
+
+plt.plot(tempo,#limpa2)
+plt.axis([1,7,0,500])
+plt.ylabel('Proteína')
+plt.xlabel('Dias da semana')
+plt.title(r'Quantidade de proteína ingerida [g]')
+plt.show()
+
+#Quantidade ingerida de gordura
+
+plt.plot(tempo,#limpa2)
+plt.axis([1,7,0,500])
+plt.ylabel('Gordura')
+plt.xlabel('Dias da semana')
+plt.title(r'Quantidade de gordura ingerida')
+plt.show() 
+
+#Quantidade ingerida de carboidrato
+
+plt.plot(tempo,#limpa2)
+plt.axis([1,7,0,500])
+plt.ylabel('Carboidrato')
+plt.xlabel('Dias da semana')
+plt.title(r'Quantidade de carboidrato ingerida')
+plt.show()  
