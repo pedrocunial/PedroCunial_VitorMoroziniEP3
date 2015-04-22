@@ -81,28 +81,52 @@ while run == True:
     
     c = True
     while c == True:
-        comida = str(input('Qual o alimento comido?')).upper()
-        qtd = float(input('Qual a quantidade comida?'))
-        print(comida)
-        cont = 0
-        for i in range(len(limpa)):
-            if limpa[i][0][0] == comida:
-                print('valor computado')
-                cont += 1
-                print(limpa[i][0][0])
-                gramas = float(limpa[i][0][1])
-                alicals = float(limpa[i][0][2])
-                aliprot = float(limpa[i][0][3])
-                alicarb = float(limpa[i][0][4])
-                aligord = float(limpa[i][0][5])
-                qtd = qtd / gramas
-                cals.append(qtd * alicals)
-                prot.append(qtd * aliprot)
-                carb.append(qtd * alicarb)
-                gord.append(qtd * aligord)
-                print(cals[-1], prot[-1], carb[-1], gord[-1])
-                c = False
-
+        if data not in datas:
+            comida = str(input('Qual o alimento comido?')).upper()
+            qtd = float(input('Qual a quantidade comida?'))
+            print(comida)
+            cont = 0
+            for i in range(len(limpa)):
+                if limpa[i][0][0] == comida:
+                    print('valor computado')
+                    cont += 1
+                    print(limpa[i][0][0])
+                    gramas = float(limpa[i][0][1])
+                    alicals = float(limpa[i][0][2])
+                    aliprot = float(limpa[i][0][3])
+                    alicarb = float(limpa[i][0][4])
+                    aligord = float(limpa[i][0][5])
+                    qtd = qtd / gramas
+                    cals.append(qtd * alicals)
+                    prot.append(qtd * aliprot)
+                    carb.append(qtd * alicarb)
+                    gord.append(qtd * aligord)
+                    print(cals[-1], prot[-1], carb[-1], gord[-1])
+                    c = False
+        else:
+            comida = str(input('Qual o alimento comido?')).upper()
+            qtd = float(input('Qual a quantidade comida?'))
+            print(comida)
+            cont = 0
+            for i in range(len(limpa)):
+                if limpa[i][0][0] == comida:
+                    print('valor computado')
+                    cont += 1
+                    print(limpa[i][0][0])
+                    gramas = float(limpa[i][0][1])
+                    alicals = float(limpa[i][0][2])
+                    aliprot = float(limpa[i][0][3])
+                    alicarb = float(limpa[i][0][4])
+                    aligord = float(limpa[i][0][5])
+                    qtd = qtd / gramas
+                    for d in range(len(datas)):
+                        if datas(d) == data:
+                            cals[d] += qtd * alicals
+                            prot[d] += qtd * aliprot
+                            carb[d] += qtd * alicarb
+                            gord[d] += qtd * aligord
+                            print(cals[d], prot[d], carb[d], gord[d])
+                            c = False
 #Quantidade recomendada de calorias
 if faf == 1:
    coef = 1.2
