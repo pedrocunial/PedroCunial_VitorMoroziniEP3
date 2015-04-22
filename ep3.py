@@ -55,7 +55,6 @@ print('Ola ', nome,  ', voce tem ', idade, 'e mede ', altura, 'm, voce eh ', sex
 run = True
 meses = {'janeiro':1, 'fevereiro':2, 'marco':3, 'abril':4, 'maio':5, 'junho':6, 'julho':7, 'agosto':8, 'setembro':9, 'outubro':10, 'novembro':11, 'dezembro':12}
 datas = []
-dic2 = {'minimo':1 , 'baixo':2 , 'medio':3 , 'alto':4 , 'muito ativo':5}
 cals = []
 prot = []
 carb = []
@@ -131,19 +130,19 @@ while run == True:
                             print(cals[d], prot[d], carb[d], gord[d])
                             c = False
 #Quantidade recomendada de calorias
-if faf == 1:
+if faf == 'minimo':
    coef = 1.2
 
-if faf == 2:
+if faf == 'baixo':
    coef = 1.375
    
-if faf == 3:
+if faf == 'medio':
    coef = 1.55
    
-if faf == 4:
+if faf == 'alto':
    coef = 1.725
    
-if faf == 5:
+if faf == 'muito ativo':
    coef = 1.9
 
 if sexo == 'm':
@@ -160,6 +159,10 @@ tempo = list(range(1,8))
 
 for i in range(7):
     limpa2.append(reccal)
+    cals.append(qtd * alicals)
+    prot.append(qtd * aliprot)
+    carb.append(qtd * alicarb)
+    gord.append(qtd * aligord)
  
 plt.plot(tempo,limpa2)
 plt.ylabel('Calorias')
@@ -169,7 +172,7 @@ plt.show()
 
 #Quantidade ingerida de calorias
 
-plt.plot(tempo,#limpa2)
+plt.plot(tempo,cals)
 plt.ylabel('Calorias')
 plt.xlabel('Dias da semana')
 plt.title(r'Quantidade de calorias ingerida')
@@ -177,7 +180,7 @@ plt.show()
 
 #Quantidade ingerida de proteína
 
-plt.plot(tempo,#limpa2)
+plt.plot(tempo,prot)
 plt.ylabel('Proteína')
 plt.xlabel('Dias da semana')
 plt.title(r'Quantidade de proteína ingerida [g]')
@@ -185,7 +188,7 @@ plt.show()
 
 #Quantidade ingerida de gordura
 
-plt.plot(tempo,#limpa2)
+plt.plot(tempo,gord)
 plt.ylabel('Gordura')
 plt.xlabel('Dias da semana')
 plt.title(r'Quantidade de gordura ingerida')
@@ -193,7 +196,7 @@ plt.show()
 
 #Quantidade ingerida de carboidrato
 
-plt.plot(tempo,#limpa2)
+plt.plot(tempo,carb)
 plt.ylabel('Carboidrato')
 plt.xlabel('Dias da semana')
 plt.title(r'Quantidade de carboidrato ingerida')
