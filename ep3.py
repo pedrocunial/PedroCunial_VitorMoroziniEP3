@@ -46,7 +46,7 @@ idade = int(input('Quantos anos voce tem?\n'))
 altura = str(input('Qual sua altura em metros?\n'))
 altura = altura.replace(',','.')
 altura = float(altura)
-peso = int(input('Qual o seu peso, em kg?'))
+peso = int(input('Qual o seu peso, em kg?\n'))
 sexo = str(input('Qual o seu sexo (m/f)?\n')).lower()
 faf = str(input('Qual o seu fator de atividade fisica (minimo,baixo,medio,alto,muito ativo)?\n')).lower()
 
@@ -56,6 +56,10 @@ run = True
 meses = {'janeiro':1, 'fevereiro':2, 'marco':3, 'abril':4, 'maio':5, 'junho':6, 'julho':7, 'agosto':8, 'setembro':9, 'outubro':10, 'novembro':11, 'dezembro':12}
 datas = []
 dic2 = {'minimo':1 , 'baixo':2 , 'medio':3 , 'alto':4 , 'muito ativo':5}
+cals = []
+prot = []
+carb = []
+gord = []
 
 while run == True:
     dia = int(input('Qual o dia referente ao alimento comido?\n'))
@@ -86,9 +90,15 @@ while run == True:
                 print(limpa[i][0][0])
                 gramas = float(limpa[i][0][1])
                 alicals = float(limpa[i][0][2])
-                cals.append(qtd / gramas  * alicals)
-                print(cals[-1])
-
+                aliprot = float(limpa[i][0][3])
+                alicarb = float(limpa[i][0][4])
+                aligord = float(limpa[i][0][5])
+                qtd = qtd / gramas
+                cals.append(qtd * alicals)
+                prot.append(qtd * aliprot)
+                carb.append(qtd * alicarb)
+                gord.append(qtd * aligord)
+                print(cals[-1], prot[-1], carb[-1], gord[-1])
                 c = False
 
 #Quantidade recomendada de calorias
@@ -128,7 +138,7 @@ plt.ylabel('Calorias')
 plt.xlabel('Dias da semana')
 plt.title(r'Quantidade de calorias recomendada')
 plt.show() 
-
+'''
 #Quantidade ingerida de calorias
 
 plt.plot(tempo,#limpa2)
@@ -164,7 +174,7 @@ plt.ylabel('Carboidrato')
 plt.xlabel('Dias da semana')
 plt.title(r'Quantidade de carboidrato ingerida')
 plt.show()  
-
+'''
 #Índice de massa corporal Nick Trefethen 1,3 X peso (em quilogramas)/ altura (metros)
 
 IMC = (1.3*peso) / altura
