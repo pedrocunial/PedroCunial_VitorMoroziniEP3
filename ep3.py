@@ -84,15 +84,12 @@ while run == True:
                 print('valor computado')
                 cont += 1
                 print(limpa[i][0][0])
+                gramas = float(limpa[i][0][1])
+                alicals = float(limpa[i][0][2])
+                cals.append(qtd / gramas  * alicals)
+                print(cals[-1])
+
                 c = False
-        if cont == 1:
-            print('Encontrado')
-            c = False
-        elif cont > 1:
-            print('ERRO, a comida aparece ', limpa.count(comida) ,'vezes na lista, seja mais especifico')
-        else:
-            print('Valor não presente na lista')
-            print(cont)
 
 #Quantidade recomendada de calorias
 if faf == 1:
