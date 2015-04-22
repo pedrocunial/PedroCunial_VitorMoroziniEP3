@@ -80,6 +80,7 @@ while run == True:
         if data not in datas:
             
             datas.append(data)
+            print(datas)
             if data - datas[0] >= datetime.timedelta(weeks = 1):
                 print('semana completa, programa finalizado, beijos.')
                 run = False
@@ -99,10 +100,12 @@ while run == True:
                     alicarb = float(limpa[i][0][4])
                     aligord = float(limpa[i][0][5])
                     qtd = qtd / gramas
-                    cals[data - datas[0]] = qtd * alicals
-                    prot[data - datas[0]] = qtd * aliprot
-                    carb[data - datas[0]] = qtd * alicarb
-                    gord[data - datas[0]] = qtd * aligord
+                    indice = int((data - datas[0])/ datetime.timedelta(days = 1))
+                    print(indice)
+                    cals[indice] = qtd * alicals
+                    prot[indice] = qtd * aliprot
+                    carb[indice] = qtd * alicarb
+                    gord[indice] = qtd * aligord
                     print(cals[-1], prot[-1], carb[-1], gord[-1])
                     c = False
         else:
