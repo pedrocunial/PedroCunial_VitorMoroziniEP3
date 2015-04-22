@@ -55,10 +55,10 @@ print('Ola ', nome,  ', voce tem ', idade, 'e mede ', altura, 'm, voce eh ', sex
 run = True
 meses = {'janeiro':1, 'fevereiro':2, 'marco':3, 'abril':4, 'maio':5, 'junho':6, 'julho':7, 'agosto':8, 'setembro':9, 'outubro':10, 'novembro':11, 'dezembro':12}
 datas = []
-cals = []
-prot = []
-carb = []
-gord = []
+cals = [] * 7
+prot = [] * 7
+carb = [] * 7
+gord = [] * 7
 
 while run == True:
     dia = int(input('Qual o dia referente ao alimento comido?\n'))
@@ -99,10 +99,10 @@ while run == True:
                     alicarb = float(limpa[i][0][4])
                     aligord = float(limpa[i][0][5])
                     qtd = qtd / gramas
-                    cals.append(qtd * alicals)
-                    prot.append(qtd * aliprot)
-                    carb.append(qtd * alicarb)
-                    gord.append(qtd * aligord)
+                    cals[data - datas[0]] = qtd * alicals
+                    prot[data - datas[0]] = qtd * aliprot
+                    carb[data - datas[0]] = qtd * alicarb
+                    gord[data - datas[0]] = qtd * aligord
                     print(cals[-1], prot[-1], carb[-1], gord[-1])
                     c = False
         else:
