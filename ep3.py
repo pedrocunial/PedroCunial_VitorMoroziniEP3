@@ -8,7 +8,7 @@ Created on Tue Apr 21 18:19:52 2015
 #Pedro Cunial & Vitor Morozini - 1A
 
 import datetime
-import matplotlib.pyplot as plt
+import matplotlib.pyplot	as plt
 
 
 
@@ -46,6 +46,7 @@ idade = int(input('Quantos anos voce tem?\n'))
 altura = str(input('Qual sua altura em metros?\n'))
 altura = altura.replace(',','.')
 altura = float(altura)
+peso = int(input('Qual o seu peso, em kg?'))
 sexo = str(input('Qual o seu sexo (m/f)?\n')).lower()
 faf = str(input('Qual o seu fator de atividade fisica (minimo,baixo,medio,alto,muito ativo)?\n')).lower()
 
@@ -54,7 +55,7 @@ print('Ola ', nome,  ', voce tem ', idade, 'e mede ', altura, 'm, voce eh ', sex
 run = True
 meses = {'janeiro':1, 'fevereiro':2, 'marco':3, 'abril':4, 'maio':5, 'junho':6, 'julho':7, 'agosto':8, 'setembro':9, 'outubro':10, 'novembro':11, 'dezembro':12}
 datas = []
-cals = []
+dic2 = {'minimo':1 , 'baixo':2 , 'medio':3 , 'alto':4 , 'muito ativo':5}
 while run == True:
     dia = int(input('Qual o dia referente ao alimento comido?\n'))
     mes = input('Qual o mes referente ao alimento comido?\n')
@@ -69,34 +70,30 @@ while run == True:
     data = datetime.date(ano,mes,dia)
     print(data)
     datas.append(data)
-    if data - datas[0] >= datetime.timedelta(weeks = 1):
-        print('semana')
+    if data >= datas[0] + 7:
         run = False
     
     c = True
     while c == True:
         comida = str(input('Qual o alimento comido?')).upper()
-        qtd = float(input('Qual a quantidade comida do alimento?'))
         print(comida)
+        cont = 0
         for i in range(len(limpa)):
             if limpa[i][0][0] == comida:
                 print('valor computado')
+                cont += 1
                 print(limpa[i][0][0])
-                gramas = float(limpa[i][0][1])
-                alicals = float(limpa[i][0][2])
-                cals.append(qtd / gramas  * alicals)
-                print(cals[-1])
-
                 c = False
-            
-
+        if cont == 1:
+            print('Encontrado')
+            c = False
+        elif cont > 1:
+            print('ERRO, a comida aparece ', limpa.count(comida) ,'vezes na lista, seja mais especifico')
+        else:
+            print('Valor não presente na lista')
+            print(cont)
 
 #Quantidade recomendada de calorias
-
-peso = int(input('Qual o seu peso, em kg?'))
-
-dic2 = {'minimo':1 , 'baixo':2 , 'medio':3 , 'alto':4 , 'muito ativo':5}
-
 if faf == 1:
    coef = 1.2
 
@@ -132,5 +129,40 @@ plt.axis([1,7,0,10000])
 plt.ylabel('Calorias')
 plt.xlabel('Dias da semana')
 plt.title(r'Quantidade de calorias recomendada')
+plt.show() 
+
+#Quantidade ingerida de calorias
+
+plt.plot(tempo,#limpa2)
+plt.axis([1,7,0,10000])
+plt.ylabel('Calorias')
+plt.xlabel('Dias da semana')
+plt.title(r'Quantidade de calorias ingerida')
+plt.show() 
+
+#Quantidade ingerida de proteína
+
+plt.plot(tempo,#limpa2)
+plt.axis([1,7,0,500])
+plt.ylabel('Proteína')
+plt.xlabel('Dias da semana')
+plt.title(r'Quantidade de proteína ingerida [g]')
 plt.show()
- 
+
+#Quantidade ingerida de gordura
+
+plt.plot(tempo,#limpa2)
+plt.axis([1,7,0,500])
+plt.ylabel('Gordura')
+plt.xlabel('Dias da semana')
+plt.title(r'Quantidade de gordura ingerida')
+plt.show() 
+
+#Quantidade ingerida de carboidrato
+
+plt.plot(tempo,#limpa2)
+plt.axis([1,7,0,500])
+plt.ylabel('Carboidrato')
+plt.xlabel('Dias da semana')
+plt.title(r'Quantidade de carboidrato ingerida')
+plt.show()  
