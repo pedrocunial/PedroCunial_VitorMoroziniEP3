@@ -56,6 +56,7 @@ run = True
 meses = {'janeiro':1, 'fevereiro':2, 'marco':3, 'abril':4, 'maio':5, 'junho':6, 'julho':7, 'agosto':8, 'setembro':9, 'outubro':10, 'novembro':11, 'dezembro':12}
 datas = []
 dic2 = {'minimo':1 , 'baixo':2 , 'medio':3 , 'alto':4 , 'muito ativo':5}
+
 while run == True:
     dia = int(input('Qual o dia referente ao alimento comido?\n'))
     mes = input('Qual o mes referente ao alimento comido?\n')
@@ -166,3 +167,16 @@ plt.ylabel('Carboidrato')
 plt.xlabel('Dias da semana')
 plt.title(r'Quantidade de carboidrato ingerida')
 plt.show()  
+
+#Índice de massa corporal Nick Trefethen 1,3 X peso (em quilogramas)/ altura (metros)
+
+IMC = (1.3*peso) / altura
+
+if IMC < 18.5:
+   print('Você está abaixo do peso')
+if 24.9 <= IMC <= 18.5:
+    print('Você é saudável')
+if 29.9 <= IMC <= 25.0:
+    print('Você está com sobrepeso')
+if IMC > 30.0:
+    print('Desculpe,você é considerado obeso')
