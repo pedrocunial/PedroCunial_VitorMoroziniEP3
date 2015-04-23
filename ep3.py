@@ -213,10 +213,21 @@ IMC = (1.3*peso) / altura
 
 if IMC < 18.5:
    print('Você está abaixo do peso')
+   fala = 'Você está abaixo do peso'
 elif 24.9 <= IMC <= 18.5:
-    print('Você é saudável')
+   print('Você é saudável')
+   fala = 'Você é saudável'
 elif 29.9 <= IMC <= 25.0:
-    print('Você está com sobrepeso')
+   print('Você está com sobrepeso')
+   fala = 'Você está com sobrepeso'
 elif IMC > 30.0:
-    print('Desculpe,você é considerado obeso')
+   print('Desculpe,você é considerado obeso')
+   fala = 'Desculpe, você é considerado obeso'
 
+file = open("newfile.txt", "w")
+
+file.write('Ola ', nome,  ', voce tem ', idade, 'e mede ', altura, 'm pesa ', peso, 'kg, voce eh ', sexo, 'e seu fator de atividade fisica eh ', faf,'\n')
+
+file.write(fala , 'seu IMC eh ', IMC , '\n')
+
+file.close()
