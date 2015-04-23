@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Created on Tue Apr 21 18:19:52 2015
-
 @author: vitor_000
 """
 
@@ -55,10 +54,10 @@ print('Ola ', nome,  ', voce tem ', idade, 'e mede ', altura, 'm, voce eh ', sex
 run = True
 meses = {'janeiro':1, 'fevereiro':2, 'marco':3, 'abril':4, 'maio':5, 'junho':6, 'julho':7, 'agosto':8, 'setembro':9, 'outubro':10, 'novembro':11, 'dezembro':12}
 datas = []
-cals = [] * 7
-prot = [] * 7
-carb = [] * 7
-gord = [] * 7
+cals = []
+prot = []
+carb = []
+gord = []
 
 while run == True:
     dia = int(input('Qual o dia referente ao alimento comido?\n'))
@@ -99,10 +98,10 @@ while run == True:
                     alicarb = float(limpa[i][0][4])
                     aligord = float(limpa[i][0][5])
                     qtd = qtd / gramas
-                    cals[data - datas[0]] = qtd * alicals
-                    prot[data - datas[0]] = qtd * aliprot
-                    carb[data - datas[0]] = qtd * alicarb
-                    gord[data - datas[0]] = qtd * aligord
+                    cals.append(qtd * alicals)
+                    prot.append(qtd * aliprot)
+                    carb.append(qtd * alicarb)
+                    gord.append(qtd * aligord)
                     print(cals[-1], prot[-1], carb[-1], gord[-1])
                     c = False
         else:
@@ -154,6 +153,10 @@ else:
 reccal = TMB*coef
   
 limpa2 = []
+cals = []
+prot = []
+carb = []
+gord = []
 
 tempo = list(range(1,8))
 
@@ -161,6 +164,10 @@ print(tempo)
 
 for i in range(7):
     limpa2.append(reccal)
+    cals.append(qtd * alicals)
+    prot.append(qtd * aliprot)
+    carb.append(qtd * alicarb)
+    gord.append(qtd * aligord)
  
 plt.plot(tempo,limpa2)
 plt.ylabel('Calorias')
@@ -213,7 +220,3 @@ elif 29.9 <= IMC <= 25.0:
 elif IMC > 30.0:
     print('Desculpe,você é considerado obeso')
 
-#print(cals)
-#print(gord)
-#print(prot)
-#print(carb)
